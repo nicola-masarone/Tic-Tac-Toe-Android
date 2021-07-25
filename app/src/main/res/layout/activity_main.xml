@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="layoutGameViewModel"
+            type="com.example.tic_tac_toe.GameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/cell_0_0"
+            android:text="@{layoutGameViewModel.grid[0][0].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(0, 0)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toTopOf="@+id/cell_1_0"
+            app:layout_constraintEnd_toStartOf="@+id/cell_0_1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="X" />
+
+        <View
+            android:id="@+id/vertLine1"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#E91E63"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_2_0"
+            app:layout_constraintEnd_toStartOf="@+id/cell_0_1"
+            app:layout_constraintStart_toEndOf="@+id/cell_0_0"
+            app:layout_constraintTop_toTopOf="@+id/cell_0_0" />
+
+        <TextView
+            android:id="@+id/cell_0_1"
+            android:text="@{layoutGameViewModel.grid[0][1].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(0, 1)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_0_0"
+            app:layout_constraintEnd_toStartOf="@+id/cell_0_2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cell_0_0"
+            app:layout_constraintTop_toTopOf="@+id/cell_0_0"
+            tools:text="O" />
+
+        <View
+            android:id="@+id/vertLine2"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#E91E63"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_2_0"
+            app:layout_constraintEnd_toStartOf="@+id/cell_0_2"
+            app:layout_constraintStart_toEndOf="@+id/cell_0_1"
+            app:layout_constraintTop_toTopOf="@+id/cell_0_0" />
+
+        <TextView
+            android:id="@+id/cell_0_2"
+            android:text="@{layoutGameViewModel.grid[0][2].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(0, 2)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_0_0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cell_0_1"
+            app:layout_constraintTop_toTopOf="@+id/cell_0_0"
+            tools:text="X" />
+
+        <View
+            android:id="@+id/horizLine1"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="#E91E63"
+            app:layout_constraintBottom_toTopOf="@+id/cell_1_0"
+            app:layout_constraintEnd_toEndOf="@+id/cell_0_2"
+            app:layout_constraintStart_toStartOf="@+id/cell_0_0"
+            app:layout_constraintTop_toBottomOf="@+id/cell_0_0" />
+
+        <TextView
+            android:id="@+id/cell_1_0"
+            android:text="@{layoutGameViewModel.grid[1][0].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(1, 0)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toTopOf="@+id/cell_2_0"
+            app:layout_constraintEnd_toStartOf="@+id/cell_1_1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cell_0_0"
+            tools:text="O" />
+
+        <TextView
+            android:id="@+id/cell_1_1"
+            android:text="@{layoutGameViewModel.grid[1][1].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(1, 1)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_1_0"
+            app:layout_constraintEnd_toStartOf="@+id/cell_1_2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cell_1_0"
+            app:layout_constraintTop_toTopOf="@+id/cell_1_0"
+            tools:text="X" />
+
+        <TextView
+            android:id="@+id/cell_1_2"
+            android:text="@{layoutGameViewModel.grid[1][2].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(1, 2)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_1_0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cell_1_1"
+            app:layout_constraintTop_toTopOf="@+id/cell_1_0"
+            tools:text="O" />
+
+        <View
+            android:id="@+id/horizLine2"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="#E91E63"
+            app:layout_constraintBottom_toTopOf="@+id/cell_2_0"
+            app:layout_constraintEnd_toEndOf="@+id/cell_0_2"
+            app:layout_constraintStart_toStartOf="@+id/cell_0_0"
+            app:layout_constraintTop_toBottomOf="@+id/cell_1_0" />
+
+        <TextView
+            android:id="@+id/cell_2_0"
+            android:text="@{layoutGameViewModel.grid[2][0].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(2, 0)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toTopOf="@+id/helpTextView"
+            app:layout_constraintEnd_toStartOf="@+id/cell_2_1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cell_1_0"
+            tools:text="X" />
+
+        <TextView
+            android:id="@+id/cell_2_1"
+            android:text="@{layoutGameViewModel.grid[2][1].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(2, 1)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_2_0"
+            app:layout_constraintEnd_toStartOf="@+id/cell_2_2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cell_2_0"
+            app:layout_constraintTop_toTopOf="@+id/cell_2_0"
+            tools:text="O" />
+
+        <TextView
+            android:id="@+id/cell_2_2"
+            android:text="@{layoutGameViewModel.grid[2][2].toString}"
+            android:onClick="@{() -> layoutGameViewModel.setCellContent(2, 2)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="96sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cell_2_0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cell_2_1"
+            app:layout_constraintTop_toTopOf="@+id/cell_2_0"
+            tools:text="X" />
+
+        <TextView
+            android:id="@+id/helpTextView"
+            android:text="@{layoutGameViewModel.helpMessage}"
+            android:onLongClick="@{(view) -> layoutGameViewModel.resetGame(view)}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#EFF3EC"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cell_2_0"
+            tools:text="This is the help text box" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
