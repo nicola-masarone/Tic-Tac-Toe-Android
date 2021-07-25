@@ -7,13 +7,13 @@
         <import type="android.view.View"/>
         <variable
             name="layoutGameViewModel"
-            type="com.example.tic_tac_toe.GameViewModel" />
+            type="it.example.tic_tac_toe.GameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context="it.example.tic_tac_toe.MainActivity">
 
         <TextView
             android:id="@+id/cell_0_0"

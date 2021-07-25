@@ -1,16 +1,17 @@
-package com.example.tic_tac_toe
+package it.example.tic_tac_toe
 
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import it.example.tic_tac_toe.R
 
 const val emptyCell = ' '
 
 class GameViewModel: ViewModel() {
 
     companion object {
-        var gameGrid = Array(3){ Array(3) {emptyCell} }
+        var gameGrid = Array(3){ Array(3) { emptyCell } }
         var colorWin = Array(3){ Array(3) {false} }
     }
 
@@ -34,15 +35,21 @@ class GameViewModel: ViewModel() {
                 _helpMessage.value = when {
                     symbWins(gameGrid, 'X') -> {
                         gameOver = true
-                        MainActivity.instance.getString(R.string.x_wins) + "\n" + MainActivity.instance.getString(R.string.reset_message)
+                        MainActivity.instance.getString(R.string.x_wins) + "\n" + MainActivity.instance.getString(
+                            R.string.reset_message
+                        )
                     }
                     symbWins(gameGrid, 'O') -> {
                         gameOver = true
-                        MainActivity.instance.getString(R.string.o_wins) + "\n" + MainActivity.instance.getString(R.string.reset_message)
+                        MainActivity.instance.getString(R.string.o_wins) + "\n" + MainActivity.instance.getString(
+                            R.string.reset_message
+                        )
                     }
                     countSymb(gameGrid, emptyCell) == 0 -> {
                         gameOver = true
-                        MainActivity.instance.getString(R.string.draw) + "\n" + MainActivity.instance.getString(R.string.reset_message)
+                        MainActivity.instance.getString(R.string.draw) + "\n" + MainActivity.instance.getString(
+                            R.string.reset_message
+                        )
                     }
                     else -> {
                         playingSymbol = if (playingSymbol == 'X') { 'O' } else { 'X' }

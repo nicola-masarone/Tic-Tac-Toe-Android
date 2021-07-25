@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tic-Tac-Toe</string>
+    <string name="x_is_playing">Está jugando X</string>
+    <string name="o_is_playing">Está jugando O</string>
+    <string name="x_wins">X gana !</string>
+    <string name="o_wins">O gana !</string>
+    <string name="draw">Empate</string>
+    <string name="full_cell">La celda ya está ocupada !</string>
+    <string name="reset_message">Haz click largo su este mensaje para reanudar el juego</string>
+</resources>
