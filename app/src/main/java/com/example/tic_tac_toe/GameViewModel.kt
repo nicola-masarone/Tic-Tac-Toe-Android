@@ -65,59 +65,59 @@ class GameViewModel: ViewModel() {
                 colorWin[0][0] = true
                 colorWin[0][1] = true
                 colorWin[0][2] = true
-                _winColor.postValue(colorWin)
+                _winColor.value = colorWin
                 true
             }
             myGrid[1][0] == symb && myGrid[1][1] == symb && myGrid[1][2] == symb -> {
                 colorWin[1][0] = true
                 colorWin[1][1] = true
                 colorWin[1][2] = true
-                _winColor.postValue(colorWin)
+                _winColor.value = colorWin
                 true
             }
             myGrid[2][0] == symb && myGrid[2][1] == symb && myGrid[2][2] == symb -> {
                 colorWin[2][0] = true
                 colorWin[2][1] = true
                 colorWin[2][2] = true
-                _winColor.postValue(colorWin)
+                _winColor.value = colorWin
                 true
             }
             myGrid[0][0] == symb && myGrid[1][0] == symb && myGrid[2][0] == symb -> {
                 colorWin[0][0] = true
                 colorWin[1][0] = true
                 colorWin[2][0] = true
-                _winColor.postValue(colorWin)
+                _winColor.value = colorWin
                 true
             }
             myGrid[0][1] == symb && myGrid[1][1] == symb && myGrid[2][1] == symb -> {
                 colorWin[0][1] = true
                 colorWin[1][1] = true
                 colorWin[2][1] = true
-                _winColor.postValue(colorWin)
+                _winColor.value = colorWin
                 true
             }
             myGrid[0][2] == symb && myGrid[1][2] == symb && myGrid[2][2] == symb -> {
                 colorWin[0][2] = true
                 colorWin[1][2] = true
                 colorWin[2][2] = true
-                _winColor.postValue(colorWin)
+                _winColor.value = colorWin
                 true
             }
             myGrid[0][0] == symb && myGrid[1][1] == symb && myGrid[2][2] == symb -> {
                 colorWin[0][0] = true
                 colorWin[1][1] = true
                 colorWin[2][2] = true
-                _winColor.postValue(colorWin)
+                _winColor.value = colorWin
                 true
             }
             myGrid[0][2] == symb && myGrid[1][1] == symb && myGrid[2][0] == symb -> {
                 colorWin[0][2] = true
                 colorWin[1][1] = true
                 colorWin[2][0] = true
-                _winColor.postValue(colorWin)
+                _winColor.value = colorWin
                 true
             }
-                    else -> false
+            else -> false
         }
     }
 
