@@ -21,6 +21,7 @@
             android:layout_height="0dp"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(0, 0)}"
             android:text="@{layoutGameViewModel.grid[0][0].toString}"
+            android:textColor= "@{layoutGameViewModel.winColor[0][0]? @color/red : @color/black}"
             android:textAlignment="center"
             android:textSize="96sp"
             app:layout_constraintBottom_toTopOf="@+id/cell_1_0"
@@ -29,19 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="X" />
-
-        <View
-            android:id="@+id/winvertline1"
-            android:layout_width="2dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#FF0000"
-            android:visibility="@{layoutGameViewModel.winVertLine1Vis? View.VISIBLE : View.INVISIBLE}"
-            app:layout_constraintBottom_toBottomOf="@+id/cell_2_0"
-            app:layout_constraintEnd_toEndOf="@+id/cell_1_0"
-            app:layout_constraintStart_toStartOf="@+id/cell_1_0"
-            app:layout_constraintTop_toTopOf="@+id/cell_0_0" />
 
         <View
             android:id="@+id/vertline1"
@@ -59,6 +47,7 @@
             android:id="@+id/cell_0_1"
             android:text="@{layoutGameViewModel.grid[0][1].toString}"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(0, 1)}"
+            android:textColor= "@{layoutGameViewModel.winColor[0][1]? @color/red : @color/black}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:textAlignment="center"
@@ -69,19 +58,6 @@
             app:layout_constraintStart_toEndOf="@+id/cell_0_0"
             app:layout_constraintTop_toTopOf="@+id/cell_0_0"
             tools:text="O" />
-
-        <View
-            android:id="@+id/winvertline2"
-            android:layout_width="2dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#FF0000"
-            android:visibility="@{layoutGameViewModel.winVertLine2Vis? View.VISIBLE : View.INVISIBLE}"
-            app:layout_constraintBottom_toBottomOf="@+id/cell_2_0"
-            app:layout_constraintEnd_toEndOf="@+id/cell_1_1"
-            app:layout_constraintStart_toStartOf="@+id/cell_1_1"
-            app:layout_constraintTop_toTopOf="@+id/cell_0_0" />
 
         <View
             android:id="@+id/vertLine2"
@@ -95,23 +71,11 @@
             app:layout_constraintStart_toEndOf="@+id/cell_0_1"
             app:layout_constraintTop_toTopOf="@+id/cell_0_0" />
 
-        <View
-            android:id="@+id/winvertline3"
-            android:layout_width="2dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#FF0000"
-            android:visibility="@{layoutGameViewModel.winVertLine3Vis? View.VISIBLE : View.INVISIBLE}"
-            app:layout_constraintBottom_toBottomOf="@+id/cell_2_0"
-            app:layout_constraintEnd_toEndOf="@+id/cell_1_2"
-            app:layout_constraintStart_toStartOf="@+id/cell_1_2"
-            app:layout_constraintTop_toTopOf="@+id/cell_0_0" />
-
         <TextView
             android:id="@+id/cell_0_2"
             android:text="@{layoutGameViewModel.grid[0][2].toString}"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(0, 2)}"
+            android:textColor= "@{layoutGameViewModel.winColor[0][2]? @color/red : @color/black}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:textAlignment="center"
@@ -122,19 +86,6 @@
             app:layout_constraintStart_toEndOf="@+id/cell_0_1"
             app:layout_constraintTop_toTopOf="@+id/cell_0_0"
             tools:text="X" />
-
-        <View
-            android:id="@+id/winhorizline1"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="#FF0000"
-            android:visibility="@{layoutGameViewModel.winHorLine1Vis? View.VISIBLE : View.INVISIBLE}"
-            app:layout_constraintBottom_toBottomOf="@+id/cell_0_1"
-            app:layout_constraintEnd_toEndOf="@+id/cell_0_2"
-            app:layout_constraintStart_toStartOf="@+id/cell_0_0"
-            app:layout_constraintTop_toTopOf="@+id/cell_0_1" />
 
         <View
             android:id="@+id/horizline1"
@@ -152,6 +103,7 @@
             android:id="@+id/cell_1_0"
             android:text="@{layoutGameViewModel.grid[1][0].toString}"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(1, 0)}"
+            android:textColor= "@{layoutGameViewModel.winColor[1][0]? @color/red : @color/black}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:textAlignment="center"
@@ -167,6 +119,7 @@
             android:id="@+id/cell_1_1"
             android:text="@{layoutGameViewModel.grid[1][1].toString}"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(1, 1)}"
+            android:textColor= "@{layoutGameViewModel.winColor[1][1]? @color/red : @color/black}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:textAlignment="center"
@@ -182,6 +135,7 @@
             android:id="@+id/cell_1_2"
             android:text="@{layoutGameViewModel.grid[1][2].toString}"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(1, 2)}"
+            android:textColor= "@{layoutGameViewModel.winColor[1][2]? @color/red : @color/black}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:textAlignment="center"
@@ -192,19 +146,6 @@
             app:layout_constraintStart_toEndOf="@+id/cell_1_1"
             app:layout_constraintTop_toTopOf="@+id/cell_1_0"
             tools:text="O" />
-
-        <View
-            android:id="@+id/winhorizline2"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="#FF0000"
-            android:visibility="@{layoutGameViewModel.winHorLine2Vis? View.VISIBLE : View.INVISIBLE}"
-            app:layout_constraintBottom_toBottomOf="@+id/cell_1_1"
-            app:layout_constraintEnd_toEndOf="@+id/cell_0_2"
-            app:layout_constraintStart_toStartOf="@+id/cell_0_0"
-            app:layout_constraintTop_toTopOf="@+id/cell_1_1" />
 
         <View
             android:id="@+id/horizline2"
@@ -218,23 +159,11 @@
             app:layout_constraintStart_toStartOf="@+id/cell_0_0"
             app:layout_constraintTop_toBottomOf="@+id/cell_1_0" />
 
-        <View
-            android:id="@+id/winhorizline3"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="#FF0000"
-            android:visibility="@{layoutGameViewModel.winHorLine3Vis? View.VISIBLE : View.INVISIBLE}"
-            app:layout_constraintBottom_toBottomOf="@+id/cell_2_1"
-            app:layout_constraintEnd_toEndOf="@+id/cell_0_2"
-            app:layout_constraintStart_toStartOf="@+id/cell_0_0"
-            app:layout_constraintTop_toTopOf="@+id/cell_2_1" />
-
         <TextView
             android:id="@+id/cell_2_0"
             android:text="@{layoutGameViewModel.grid[2][0].toString}"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(2, 0)}"
+            android:textColor= "@{layoutGameViewModel.winColor[2][0]? @color/red : @color/black}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:textAlignment="center"
@@ -250,6 +179,7 @@
             android:id="@+id/cell_2_1"
             android:text="@{layoutGameViewModel.grid[2][1].toString}"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(2, 1)}"
+            android:textColor= "@{layoutGameViewModel.winColor[2][1]? @color/red : @color/black}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:textAlignment="center"
@@ -267,6 +197,7 @@
             android:layout_height="0dp"
             android:onClick="@{() -> layoutGameViewModel.setCellContent(2, 2)}"
             android:text="@{layoutGameViewModel.grid[2][2].toString}"
+            android:textColor= "@{layoutGameViewModel.winColor[2][2]? @color/red : @color/black}"
             android:textAlignment="center"
             android:textSize="96sp"
             app:layout_constraintBottom_toBottomOf="@+id/cell_2_0"

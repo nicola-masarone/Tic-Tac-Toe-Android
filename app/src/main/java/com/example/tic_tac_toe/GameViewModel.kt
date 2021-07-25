@@ -11,31 +11,17 @@ class GameViewModel: ViewModel() {
 
     companion object {
         var gameGrid = Array(3){ Array(3) {emptyCell} }
+        var colorWin = Array(3){ Array(3) {false} }
     }
-    private var _grid = MutableLiveData(gameGrid)!!
+
+    private var _grid = MutableLiveData(gameGrid)
     val grid: LiveData<Array<Array<Char>>> = _grid
 
     private var _helpMessage = MutableLiveData<String>(MainActivity.instance.getString(R.string.x_is_playing))
-    val helpMessage: MutableLiveData<String> = _helpMessage
+    val helpMessage: LiveData<String> = _helpMessage
 
-    private var _winVertLine1Vis = MutableLiveData<Boolean>(false)
-    val winVertLine1Vis: LiveData<Boolean> = _winVertLine1Vis
-    private var _winVertLine2Vis = MutableLiveData<Boolean>(false)
-    val winVertLine2Vis: LiveData<Boolean> = _winVertLine2Vis
-    private var _winVertLine3Vis = MutableLiveData<Boolean>(false)
-    val winVertLine3Vis: LiveData<Boolean> = _winVertLine3Vis
-    private var _winHorLine1Vis = MutableLiveData<Boolean>(false)
-    val winHorLine1Vis: LiveData<Boolean> = _winHorLine1Vis
-    private var _winHorLine2Vis = MutableLiveData<Boolean>(false)
-    val winHorLine2Vis: LiveData<Boolean> = _winHorLine2Vis
-    private var _winHorLine3Vis = MutableLiveData<Boolean>(false)
-    val winHorLine3Vis: LiveData<Boolean> = _winHorLine3Vis
-    private var _winDiagLine1Vis = MutableLiveData<Boolean>(false)
-    val winDiagLine1Vis: LiveData<Boolean> = _winDiagLine1Vis
-    private var _winDiagLine2Vis = MutableLiveData<Boolean>(false)
-    val winDiagLine2Vis: LiveData<Boolean> = _winDiagLine2Vis
-    private var winnerLine: MutableLiveData<Boolean> = _winVertLine1Vis
-
+    private var _winColor = MutableLiveData(colorWin)
+    val winColor: LiveData<Array<Array<Boolean>>> = _winColor
 
     private var playingSymbol = 'X'
     private var gameOver = false
@@ -59,11 +45,7 @@ class GameViewModel: ViewModel() {
                         MainActivity.instance.getString(R.string.draw) + "\n" + MainActivity.instance.getString(R.string.reset_message)
                     }
                     else -> {
-                        playingSymbol = if (playingSymbol == 'X') {
-                            'O'
-                        } else {
-                            'X'
-                        }
+                        playingSymbol = if (playingSymbol == 'X') { 'O' } else { 'X' }
                         if (playingSymbol == 'X') {
                             MainActivity.instance.getString(R.string.x_is_playing)
                         } else {
@@ -80,43 +62,59 @@ class GameViewModel: ViewModel() {
     private fun symbWins(myGrid: Array<Array<Char>>, symb: Char):Boolean {
         return when {
             myGrid[0][0] == symb && myGrid[0][1] == symb && myGrid[0][2] == symb -> {
-                _winHorLine1Vis.value = true
-                winnerLine = _winHorLine1Vis
+                colorWin[0][0] = true
+                colorWin[0][1] = true
+                colorWin[0][2] = true
+                _winColor.postValue(colorWin)
                 true
             }
             myGrid[1][0] == symb && myGrid[1][1] == symb && myGrid[1][2] == symb -> {
-                _winHorLine2Vis.value = true
-                winnerLine = _winHorLine2Vis
+                colorWin[1][0] = true
+                colorWin[1][1] = true
+                colorWin[1][2] = true
+                _winColor.postValue(colorWin)
                 true
             }
             myGrid[2][0] == symb && myGrid[2][1] == symb && myGrid[2][2] == symb -> {
-                _winHorLine3Vis.value = true
-                winnerLine = _winHorLine3Vis
+                colorWin[2][0] = true
+                colorWin[2][1] = true
+                colorWin[2][2] = true
+                _winColor.postValue(colorWin)
                 true
             }
             myGrid[0][0] == symb && myGrid[1][0] == symb && myGrid[2][0] == symb -> {
-                _winVertLine1Vis.value = true
-                winnerLine = _winVertLine1Vis
+                colorWin[0][0] = true
+                colorWin[1][0] = true
+                colorWin[2][0] = true
+                _winColor.postValue(colorWin)
                 true
             }
             myGrid[0][1] == symb && myGrid[1][1] == symb && myGrid[2][1] == symb -> {
-                _winVertLine2Vis.value = true
-                winnerLine = _winVertLine2Vis
+                colorWin[0][1] = true
+                colorWin[1][1] = true
+                colorWin[2][1] = true
+                _winColor.postValue(colorWin)
                 true
             }
             myGrid[0][2] == symb && myGrid[1][2] == symb && myGrid[2][2] == symb -> {
-                _winVertLine3Vis.value = true
-                winnerLine = _winVertLine3Vis
+                colorWin[0][2] = true
+                colorWin[1][2] = true
+                colorWin[2][2] = true
+                _winColor.postValue(colorWin)
                 true
             }
             myGrid[0][0] == symb && myGrid[1][1] == symb && myGrid[2][2] == symb -> {
-                _winDiagLine1Vis.value = true
-                winnerLine = _winDiagLine1Vis
+                colorWin[0][0] = true
+                colorWin[1][1] = true
+                colorWin[2][2] = true
+                _winColor.postValue(colorWin)
                 true
             }
             myGrid[0][2] == symb && myGrid[1][1] == symb && myGrid[2][0] == symb -> {
-                _winDiagLine2Vis.value = true
-                winnerLine = _winDiagLine2Vis
+                colorWin[0][2] = true
+                colorWin[1][1] = true
+                colorWin[2][0] = true
+                _winColor.postValue(colorWin)
                 true
             }
                     else -> false
@@ -138,12 +136,13 @@ class GameViewModel: ViewModel() {
             for (i in 0..2) {
                 for (j in 0..2) {
                     gameGrid[i][j] = emptyCell
+                    colorWin[i][j] = false
                 }
             }
-            _grid.postValue(gameGrid)
-            winnerLine.value = false
-            playingSymbol = 'X'
+            _grid.value = gameGrid
+            _winColor.value = colorWin
             _helpMessage.value = MainActivity.instance.getString(R.string.x_is_playing)
+            playingSymbol = 'X'
             gameOver = false
         }
         return false
