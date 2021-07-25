@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tris</string>
+    <string name="x_is_playing">Sta giocando X</string>
+    <string name="o_is_playing">Sta giocando O</string>
+    <string name="x_wins">X vince !</string>
+    <string name="o_wins">O vince !</string>
+    <string name="draw">Patta</string>
+    <string name="full_cell">La cella è già occupata !</string>
+    <string name="reset_message">Click lungo su questo messaggio per riavviare il gioco</string>
+</resources>

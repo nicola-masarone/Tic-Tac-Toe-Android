@@ -2,8 +2,9 @@
     <string name="app_name">Tic-Tac-Toe</string>
     <string name="x_is_playing">X is playing</string>
     <string name="o_is_playing">O is playing</string>
-    <string name="x_wins">X wins</string>
-    <string name="o_wins">O wins</string>
+    <string name="x_wins">X wins !</string>
+    <string name="o_wins">O wins !</string>
     <string name="draw">Draw</string>
-    <string name="full_cell">Cell is already occupied!</string>
+    <string name="full_cell">Cell is already occupied !</string>
+    <string name="reset_message">Long click on this message to reset game</string>
 </resources>
