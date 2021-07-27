@@ -1,6 +1,5 @@
 package it.example.tic_tac_toe
 
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -138,7 +137,7 @@ class GameViewModel: ViewModel() {
         return counter
     }
 
-    fun resetGame(view: View): Boolean {
+    fun resetGame(): Boolean {
         if (gameOver) {
             for (i in 0..2) {
                 for (j in 0..2) {

@@ -212,7 +212,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#EFF3EC"
-            android:onLongClick="@{(view) -> layoutGameViewModel.resetGame(view)}"
+            android:onLongClick="@{() -> layoutGameViewModel.resetGame()}"
             android:padding="8dp"
             android:text="@{layoutGameViewModel.helpMessage}"
             android:textSize="24sp"
