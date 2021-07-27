@@ -4,7 +4,6 @@ import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import it.example.tic_tac_toe.R
 
 const val emptyCell = ' '
 
@@ -24,7 +23,8 @@ class GameViewModel: ViewModel() {
     private var _winColor = MutableLiveData(colorWin)
     val winColor: LiveData<Array<Array<Boolean>>> = _winColor
 
-    private var playingSymbol = 'X'
+    private var startingSymbol = 'X'
+    private var playingSymbol = startingSymbol
     private var gameOver = false
 
     fun setCellContent(row: Int, col: Int) {
@@ -148,8 +148,14 @@ class GameViewModel: ViewModel() {
             }
             _grid.value = gameGrid
             _winColor.value = colorWin
-            _helpMessage.value = MainActivity.instance.getString(R.string.x_is_playing)
-            playingSymbol = 'X'
+            startingSymbol = if (startingSymbol == 'X') {
+                _helpMessage.value = MainActivity.instance.getString(R.string.o_is_playing)
+                'O'
+            } else {
+                _helpMessage.value = MainActivity.instance.getString(R.string.x_is_playing)
+                'X'
+            }
+            playingSymbol = startingSymbol
             gameOver = false
         }
         return false
